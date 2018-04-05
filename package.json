@@ -1,0 +1,44 @@
+{
+  "name": "today-is-worker",
+  "version": "0.0.1",
+  "description": "updates 'today-is' repo daily with the new date",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "now -f -p"
+  },
+  "now": {
+    "alias": "today-is",
+    "dotenv": true,
+    "scale": {
+      "sfo1": {
+        "min": 1,
+        "max": 1
+      }
+    }
+  },
+  "engines": {
+    "node": ">= 8.0.0",
+    "npm": ">= 5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:alxpez/today-is.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alxpez/today-is/issues"
+  },
+  "homepage": "https://github.com/alxpez/today-is#README",
+  "keywords": [
+    "date",
+    "github-api",
+    "today",
+    "up-to-date",
+    "today-is"
+  ],
+  "author": "alxpez",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^15.2.6",
+    "dotenv": "^5.0.1"
+  }
+}
