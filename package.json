@@ -1,6 +1,6 @@
 {
   "name": "daily-worker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "every 24h, updates some repos",
   "scripts": {
     "start": "node index.js",
