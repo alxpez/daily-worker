@@ -1,7 +1,7 @@
 {
-  "name": "today-is-worker",
-  "version": "0.0.1",
-  "description": "updates 'today-is' repo daily with the new date",
+  "name": "daily-worker",
+  "version": "0.0.2",
+  "description": "every 24h, updates some repos",
   "scripts": {
     "start": "node index.js",
     "deploy": "now -f -p"
@@ -39,6 +39,7 @@
   "license": "MIT",
   "dependencies": {
     "@octokit/rest": "^15.2.6",
+    "axios": "^0.18.0",
     "dotenv": "^5.0.1"
   }
 }
