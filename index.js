@@ -42,7 +42,7 @@ async function updateDate (date) {
   const description = `:spiral_calendar: ${date.toUTCString().slice(0, date.toUTCString().lastIndexOf(' ') - 9)} (UTC)`
   const content = Buffer.from(`# ${description}`).toString('base64')
 
-  await updateRepo('today-is', description, content, 'calendar auto-update: by daily-worker')
+  await updateRepo('today-is', description, content)
   console.log(`Today is: ${description}`)
 }
 // Updates quote42day repo
@@ -53,7 +53,7 @@ async function updateQuote () {
   const content = Buffer.from(`> ${quote.quote}
   #### —${quote.author} [:scroll:](${quote.permalink})`).toString('base64')
 
-  await updateRepo('quote42day', description, content, 'quote auto-update: by daily-worker')
+  await updateRepo('quote42day', description, content)
   console.log(`"${quote.quote}" [${quote.author}]`)
 }
 
@@ -61,7 +61,7 @@ async function updateQuote () {
 // --- APIs methods --- //
 
 
-async function updateRepo(repo, description, content, message) {
+async function updateRepo(repo, description, content) {
   const committer = {name: ghInfo.owner, email: ghInfo.email}
 
   try {
@@ -73,7 +73,8 @@ async function updateRepo(repo, description, content, message) {
 
     const readme = await octokit.repos.getReadme({owner: ghInfo.owner, repo: repo})
     octokit.repos.updateFile({
-      owner: ghInfo.owner, repo, message, content, committer,
+      owner: ghInfo.owner, repo,
+      message: `${description} (auto-update)`, content, committer,
       sha: readme.data.sha, path: readme.data.path
     })
   } catch (e) {
