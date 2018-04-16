@@ -7,7 +7,7 @@
     "deploy": "now -f -p"
   },
   "now": {
-    "alias": "today-is",
+    "alias": "daily-worker",
     "dotenv": true,
     "scale": {
       "sfo1": {
