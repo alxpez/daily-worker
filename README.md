@@ -4,6 +4,6 @@
 
 ### Current tasks
 - Update **alxpez/today-is** with a new UTC date
-> an calendar as pinned repository
+> a calendar as a pinned repository
 - Update **alxpez/quote42day** with a new quote
 > some daily inspiration
